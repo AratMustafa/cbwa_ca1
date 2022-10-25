@@ -43,7 +43,7 @@ COPY httpd.conf .
 # Copy the static website
 # Use the .dockerignore file to control what ends up inside the image!
 # NOTE: Commented out since this will also copy the .config file
-# COPY . .
+COPY . /workspace/cbwa_ca1/webdev_ca2
 
 # Run busybox httpd
 CMD ["/busybox", "httpd", "-f", "-v", "-p", "8080", "-c", "httpd.conf"]
