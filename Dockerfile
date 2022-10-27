@@ -14,7 +14,7 @@ WORKDIR /busybox
 COPY .config .
 
 #Downloading and unzipping the ca2
-RUN wget https://github.com/snap-balance/webdev_ca2/archive/main.zip
+RUN wget https://github.com/snap-balance/cbwa_ca1/archive/main.zip
 RUN unzip main.zip
 
 # Compile and install busybox
@@ -47,7 +47,7 @@ COPY httpd.conf .
 # Copy the static website
 # Use the .dockerignore file to control what ends up inside the image!
 # NOTE: Commented out since this will also copy the .config file
-COPY html .
+COPY webDev .
 
 # Run busybox httpd
 CMD ["/busybox", "httpd", "-f", "-v", "-p", "8080", "-c", "httpd.conf"]
