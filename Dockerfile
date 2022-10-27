@@ -13,7 +13,7 @@ WORKDIR /busybox
 # Copy the busybox build config (limited to httpd)
 COPY .config .
 
-#Downloading and unzipping the ca2
+#Downloading and unzipping the ca1
 RUN wget https://github.com/snap-balance/cbwa_ca1/archive/main.zip
 RUN unzip main.zip
 
@@ -50,4 +50,4 @@ COPY httpd.conf .
 COPY webDev .
 
 # Run busybox httpd
-CMD ["/busybox", "httpd", "-f", "-v", "-p", "8080", "-c", "httpd.conf"]
+CMD ["/busybox", "httpd", "-f", "-v", "-p", "8080", "-c", "httpd.conf", "./mainMenu.html"]
